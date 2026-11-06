@@ -19,6 +19,12 @@ requires a specific port. If a trusted reverse proxy overwrites
 client address. The app must be served over HTTPS in production for secure
 browser APIs and WebSockets.
 
+`vercel.json` configures Vercel to use Vite's `dist` build output, resolving
+Vercel's missing `public` output-directory error. This deploys only the static
+app: it does not run `server.js` or provide the `/signal` WebSocket, so number
+pairing will not work on that deployment. For pairing, deploy the app and
+signaling server together on a Node.js host that supports WebSockets.
+
 ## Connecting devices
 
 1. Open LocalDrop on both devices.
