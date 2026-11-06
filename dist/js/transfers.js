@@ -20,10 +20,11 @@ function waitForBuffer(channel) {
 }
 
 function encodeChunk(id, index, bytes) {
-	const frame = new Uint8Array(HEADER_SIZE);
+	const frame = new Uint8Array(HEADER_SIZE + bytes.byteLength);
 	for (let i = 0; i < 16; i += 1) frame[i] = Number.parseInt(id.slice(i * 2, i * 2 + 2), 16);
 	new DataView(frame.buffer).setUint32(16, index);
-	return new Blob([frame, bytes]);
+	frame.set(new Uint8Array(bytes), HEADER_SIZE);
+	return frame;
 }
 
 function decodeChunk(data) {
