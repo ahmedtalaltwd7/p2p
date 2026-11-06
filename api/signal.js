@@ -15,7 +15,9 @@ const server = createServer((request, response) => {
 let redis;
 
 function getRedis() {
-	if (!process.env.UPSTASH_REDIS_REST_URL || !process.env.UPSTASH_REDIS_REST_TOKEN) {
+	const hasUrl = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+	const hasToken = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+	if (!hasUrl || !hasToken) {
 		throw new Error('Pairing is not configured. Connect an Upstash Redis database to this Vercel project.');
 	}
 	redis ||= Redis.fromEnv();
@@ -101,9 +103,15 @@ async function joinRoom(socket, code) {
 		fail(socket, 'Number not found or already used. Check the number and try again.');
 		return;
 	}
+	const currentRoom = await redisClient.get(keys.room);
+	if (!currentRoom || currentRoom.expiresAt <= Date.now()) {
+		await redisClient.del(keys.joined);
+		fail(socket, 'Number not found or already used. Check the number and try again.');
+		return;
+	}
 	socket.role = 'guest';
 	socket.code = code;
-	send(socket, { type: 'offer', offer: room.offer });
+	send(socket, { type: 'offer', offer: currentRoom.offer });
 }
 
 async function pollRoom(socket) {
