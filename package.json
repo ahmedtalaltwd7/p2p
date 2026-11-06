@@ -1,0 +1,18 @@
+{
+	"name": "localdrop",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite --host 0.0.0.0",
+		"build": "vite build",
+		"preview": "vite preview --host 0.0.0.0"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^8.0.0",
+		"@sveltejs/kit": "^3.0.0",
+		"@sveltejs/vite-plugin-svelte": "^7.2.0",
+		"svelte": "^5.57.2",
+		"vite": "^8.3.0"
+	}
+}
