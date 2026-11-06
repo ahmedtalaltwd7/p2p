@@ -19,11 +19,14 @@ requires a specific port. If a trusted reverse proxy overwrites
 client address. The app must be served over HTTPS in production for secure
 browser APIs and WebSockets.
 
-`vercel.json` configures Vercel to use Vite's `dist` build output, resolving
-Vercel's missing `public` output-directory error. This deploys only the static
-app: it does not run `server.js` or provide the `/signal` WebSocket, so number
-pairing will not work on that deployment. For pairing, deploy the app and
-signaling server together on a Node.js host that supports WebSockets.
+`vercel.json` configures Vercel to use Vite's `dist` build output. Numeric
+pairing on Vercel also needs an Upstash Redis database connected to the
+project; set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` in the
+Vercel environment, then redeploy. The Vercel WebSocket function stores
+short-lived signaling offers and answers in Redis so devices can connect even
+when Vercel routes them to different instances. Pairing data expires after
+five minutes; file contents are never sent to the signaling service. Without
+Redis configured, the app will show a pairing service configuration error.
 
 ## Connecting devices
 
@@ -32,10 +35,10 @@ signaling server together on a Node.js host that supports WebSockets.
 3. Enter the displayed eight-digit number on the second device. The connection
    is negotiated automatically.
 
-The signaling server temporarily relays the WebRTC offer and answer in memory;
-it does not receive file contents or save pairing data. Eight-digit numbers
-expire after five minutes and can only be used once. Share them only with the
-device you intend to connect. No STUN or TURN server is configured, so NAT,
+The signaling server temporarily relays the WebRTC offer and answer; it does
+not receive file contents. On Vercel, signaling data is held in Redis for up to
+five minutes. Eight-digit numbers can only be used once. Share them only with
+the device you intend to connect. No STUN or TURN server is configured, so NAT,
 browser network privacy, Wi-Fi isolation, and network policy may still prevent
 a direct connection, especially across different networks.
 

@@ -1,7 +1,7 @@
 export class SignalingConnection {
 	constructor(onMessage, onClose, onError) {
 		const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-		this.socket = new WebSocket(`${protocol}//${window.location.host}/signal`);
+		this.socket = new WebSocket(`${protocol}//${window.location.host}/api/signal`);
 		this.ready = new Promise((resolve, reject) => {
 			let opened = false;
 			const timeout = setTimeout(() => {

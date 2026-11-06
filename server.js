@@ -258,7 +258,7 @@ httpServer.on('upgrade', (request, socket, head) => {
 		socket.destroy();
 		return;
 	}
-	if (pathname !== '/signal' || origin.host !== request.headers.host) {
+	if (pathname !== '/api/signal' || origin.host !== request.headers.host) {
 		socket.write('HTTP/1.1 403 Forbidden\r\nConnection: close\r\n\r\n');
 		socket.destroy();
 		return;
