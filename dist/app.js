@@ -9,27 +9,26 @@ const translations = {
 		navTransfers: 'Transfers', navHistory: 'History', navSettings: 'Settings',
 		privacy: 'Private by design', online: 'Ready to connect', titleHome: 'Your files, your devices.',
 		subtitleHome: 'Move files directly between your devices. Nothing is uploaded or stored in the cloud.',
-		createConnection: 'Create connection', joinConnection: 'Join a connection',
+		createConnection: 'Create connection', joinConnection: 'Join with a number',
 		sendFiles: 'Send files', receiveFiles: 'Receive files', recentTransfers: 'Recent transfers',
 		noRecent: 'Your recent transfers will appear here.', howItWorks: 'Simple. Direct. Private.',
-		stepOne: 'Connect devices', stepOneText: 'Exchange connection details directly between your screens.',
+		stepOne: 'Connect devices', stepOneText: 'Create a number on one device and enter it on the other.',
 		stepTwo: 'Choose your files', stepTwoText: 'Pick files or drop them here. You stay in control.',
 		stepThree: 'Transfer directly', stepThreeText: 'Files travel peer to peer, never through a file server.',
 		connectionTitle: 'Connect your devices', connectionSubtitle: 'Create a number on one device, enter it on the other, and connect.',
 		connectionNotice: 'Keep both devices on this page while they connect. Files travel directly between devices; a short-lived code helps them find each other.',
 		stepCreate: '1. Create a number', stepJoin: '2. Enter the number',
 		createInstructions: 'Create a one-time number and share it with your other device.',
-		joinInstructions: 'Enter the number shown on the first device. The connection starts automatically.',
-		createOffer: 'Create connection number', joinConnection: 'Join with a number',
+		joinInstructions: 'Paste or type the eight-digit number. The connection starts automatically.',
+		createOffer: 'Create connection number',
 		pairingCodeLabel: 'Your one-time connection number',
-		pairingCodePlaceholder: 'Your number will appear here',
 		pairingWaiting: 'Waiting for the other device to enter this number…',
-		pairingJoining: 'Finding the other device…',
 		pairingConnecting: 'Number accepted. Connecting devices…',
 		pairingExpired: 'This number expired. Create a new one.',
 		joinCodeLabel: 'Enter the number from the other device',
 		joinCodePlaceholder: '8-digit number',
-		joinCode: 'Connect', copyCode: 'Copy number', codeCopied: 'Connection number copied.',
+		retryConnection: 'Try again',
+		copyCode: 'Copy number', codeCopied: 'Connection number copied.',
 		invalidCode: 'Enter the 8-digit number shown on the other device.',
 		pairingCreated: 'Your number is ready. Enter it on the other device.',
 		pairingJoined: 'Number accepted. Connecting…',
@@ -69,27 +68,26 @@ const translations = {
 		navTransfers: 'النقل', navHistory: 'السجل', navSettings: 'الإعدادات',
 		privacy: 'خصوصية من التصميم', online: 'جاهز للاتصال', titleHome: 'ملفاتك، أجهزتك.',
 		subtitleHome: 'انقل الملفات مباشرة بين أجهزتك. لا يتم رفع أي شيء إلى السحابة أو تخزينه فيها.',
-		createConnection: 'إنشاء اتصال', joinConnection: 'الانضمام إلى اتصال',
+		createConnection: 'إنشاء اتصال', joinConnection: 'الانضمام برقم',
 		sendFiles: 'إرسال ملفات', receiveFiles: 'استقبال ملفات', recentTransfers: 'عمليات النقل الأخيرة',
 		noRecent: 'ستظهر عمليات النقل الأخيرة هنا.', howItWorks: 'بسيط. مباشر. خاص.',
-		stepOne: 'اتصل بالأجهزة', stepOneText: 'تبادل تفاصيل الاتصال مباشرة بين الشاشتين.',
+		stepOne: 'اتصل بالأجهزة', stepOneText: 'أنشئ رقمًا على أحد الجهازين وأدخله في الآخر.',
 		stepTwo: 'اختر ملفاتك', stepTwoText: 'اختر الملفات أو اسحبها إلى هنا. أنت المتحكم.',
 		stepThree: 'نقل مباشر', stepThreeText: 'تنتقل الملفات مباشرة بين الجهازين دون خادم ملفات.',
 		connectionTitle: 'اتصل بأجهزتك', connectionSubtitle: 'أنشئ رقمًا على جهاز وأدخله في الجهاز الآخر للاتصال.',
 		connectionNotice: 'أبقِ التطبيق مفتوحًا على الجهازين أثناء الاتصال. تنتقل الملفات مباشرة بين الجهازين؛ يساعدهما رمز مؤقت على العثور على بعضهما.',
 		stepCreate: '١. إنشاء رقم', stepJoin: '٢. إدخال الرقم',
 		createInstructions: 'أنشئ رقمًا لمرة واحدة وشاركه مع جهازك الآخر.',
-		joinInstructions: 'أدخل الرقم الظاهر على الجهاز الأول. يبدأ الاتصال تلقائيًا.',
-		createOffer: 'إنشاء رقم اتصال', joinConnection: 'الانضمام برقم',
+		joinInstructions: 'الصق الرقم المكوّن من ٨ أرقام أو اكتبه. يبدأ الاتصال تلقائيًا.',
+		createOffer: 'إنشاء رقم اتصال',
 		pairingCodeLabel: 'رقم الاتصال لمرة واحدة',
-		pairingCodePlaceholder: 'سيظهر رقمك هنا',
 		pairingWaiting: 'بانتظار إدخال الرقم في الجهاز الآخر…',
-		pairingJoining: 'جارٍ العثور على الجهاز الآخر…',
 		pairingConnecting: 'تم قبول الرقم. جارٍ توصيل الجهازين…',
 		pairingExpired: 'انتهت صلاحية هذا الرقم. أنشئ رقمًا جديدًا.',
 		joinCodeLabel: 'أدخل الرقم الظاهر على الجهاز الآخر',
 		joinCodePlaceholder: 'رقم من ٨ أرقام',
-		joinCode: 'اتصال', copyCode: 'نسخ الرقم', codeCopied: 'تم نسخ رقم الاتصال.',
+		retryConnection: 'إعادة المحاولة',
+		copyCode: 'نسخ الرقم', codeCopied: 'تم نسخ رقم الاتصال.',
 		invalidCode: 'أدخل الرقم المكوّن من ٨ أرقام الظاهر على الجهاز الآخر.',
 		pairingCreated: 'رقمك جاهز. أدخله في الجهاز الآخر.',
 		pairingJoined: 'تم قبول الرقم. جارٍ الاتصال…',
@@ -262,8 +260,9 @@ function renderConnect() {
 		</section>
 		<section class="panel connection-panel"><div class="panel-step">${t('stepJoin')}</div><h2>${t('joinConnection')}</h2><p class="muted">${t('joinInstructions')}</p>
 			<label class="field-label" for="pairing-code-input">${t('joinCodeLabel')}</label>
-			<input id="pairing-code-input" class="pairing-code-input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" pattern="[0-9]{8}" placeholder="${t('joinCodePlaceholder')}" value="${escapeHtml(state.joinCode)}" ${state.connectionState === 'connected' ? 'disabled' : ''}>
-			<button class="button button-secondary full-button" data-action="join-pairing" ${['creating', 'connecting', 'connected'].includes(state.connectionState) ? 'disabled' : ''}>${t('joinCode')} ${icons.arrow}</button>
+			<input id="pairing-code-input" class="pairing-code-input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" pattern="[0-9]{8}" placeholder="${t('joinCodePlaceholder')}" value="${escapeHtml(state.joinCode)}" ${['creating', 'connecting', 'connected'].includes(state.connectionState) ? 'disabled' : ''}>
+			${state.pairingRole === 'guest' && state.pairingStatus ? `<p class="muted pairing-status" aria-live="polite">${t(state.pairingStatus === 'joining' ? 'pairingJoining' : 'pairingConnecting')}</p>` : ''}
+			${state.connectionState === 'failed' && state.joinCode.length === 8 ? `<button class="button button-quiet full-button" data-action="join-pairing">${t('retryConnection')}</button>` : ''}
 		</section>
 	</div>
 	${state.connectionState === 'connected' ? `<div class="connection-success"><span class="success-check">✓</span><div><strong>${t('connectionMade')}</strong><p>${t('device')}: Local peer</p></div><button class="button button-quiet" data-action="close-peer">${t('cancelConnection')}</button></div>` : ''}
@@ -355,6 +354,9 @@ function bindEvents() {
 	document.querySelector('#pairing-code-input')?.addEventListener('input', (event) => {
 		state.joinCode = normalizePairingCode(event.target.value);
 		event.target.value = state.joinCode;
+		if (state.joinCode.length === 8 && !['creating', 'connecting', 'connected'].includes(state.connectionState)) {
+			joinPairing().catch(showError);
+		}
 	});
 	document.querySelector('#file-search')?.addEventListener('input', (event) => {
 		state.search = event.target.value;
@@ -451,7 +453,7 @@ async function createPairing() {
 	try {
 		const peer = createPeer();
 		state.offer = await peer.createOffer();
-		state.signaling = new SignalingConnection(handleSignalMessage, handleSignalClose, showError);
+		state.signaling = new SignalingConnection(handleSignalMessage, handleSignalClose, handleSignalError);
 		await state.signaling.ready;
 		await state.signaling.send({ type: 'create', offer: JSON.parse(state.offer) });
 	} catch (error) {
@@ -478,7 +480,7 @@ async function joinPairing() {
 	state.connectionState = 'connecting';
 	render();
 	try {
-		state.signaling = new SignalingConnection(handleSignalMessage, handleSignalClose, showError);
+		state.signaling = new SignalingConnection(handleSignalMessage, handleSignalClose, handleSignalError);
 		await state.signaling.ready;
 		await state.signaling.send({ type: 'join', code });
 	} catch (error) {
@@ -494,11 +496,7 @@ async function joinPairing() {
 
 async function handleSignalMessage(message) {
 	if (message.type === 'error') {
-		closePeer();
-		state.connectionState = 'failed';
-		render();
-		showError(new Error(message.message || t('connectionServerFailed')));
-		return;
+		throw new Error(message.message || t('connectionServerFailed'));
 	}
 	if (message.type === 'created') {
 		state.pairingCode = message.code;
@@ -541,18 +539,21 @@ async function handleSignalMessage(message) {
 		render();
 		return;
 	}
-	if (message.type === 'peer-left') {
-		state.pairingStatus = 'waiting';
-		showToast(t('pairingWaiting'));
-		render();
-		return;
-	}
 	if (message.type === 'expired') {
 		closePeer();
 		showError(new Error(message.message || t('pairingExpired')));
 		return;
 	}
 	throw new Error('Received an unknown message from the signaling server.');
+}
+
+function handleSignalError(error) {
+	const retryCode = state.pairingRole === 'guest' ? state.joinCode : '';
+	closePeer();
+	state.connectionState = 'failed';
+	state.joinCode = retryCode;
+	render();
+	showError(error);
 }
 
 function handleSignalClose(event) {
@@ -591,6 +592,7 @@ function updateConnectionState(connectionState) {
 		closeSignaling();
 		showToast(t('connectionMade'));
 	} else if (connectionState === 'failed') {
+		closeSignaling();
 		state.connectionState = 'failed';
 		showError(new Error(t('connectionFailed')));
 		state.pairingCode = '';
@@ -604,7 +606,7 @@ function updateConnectionState(connectionState) {
 	render();
 }
 
-function closePeer(clearCodes = true) {
+function closePeer() {
 	closeSignaling();
 	state.peer?.close();
 	state.peer = null;
@@ -616,14 +618,12 @@ function closePeer(clearCodes = true) {
 		if (transfer.status === 'complete') loadHistory().catch(showError);
 	});
 	state.connectionState = 'idle';
-	if (clearCodes) {
-		state.offer = '';
-		state.answer = '';
-		state.pairingCode = '';
-		state.pairingRole = '';
-		state.pairingStatus = '';
-		state.joinCode = '';
-	}
+	state.offer = '';
+	state.answer = '';
+	state.pairingCode = '';
+	state.pairingRole = '';
+	state.pairingStatus = '';
+	state.joinCode = '';
 	render();
 }
 

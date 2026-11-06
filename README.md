@@ -14,8 +14,10 @@ Create a production build with `npm run build`, then run it with `npm start`.
 The development and production servers provide both the app and its signaling
 WebSocket endpoint. Deploy them together on a Node.js host that supports
 WebSockets; a static-only host is not sufficient. Set `PORT` if the host
-requires a specific port. The app must be served over HTTPS in production for
-secure browser APIs and WebSockets.
+requires a specific port. If a trusted reverse proxy overwrites
+`X-Forwarded-For`, set `TRUST_PROXY=true` so pairing-attempt limits use the
+client address. The app must be served over HTTPS in production for secure
+browser APIs and WebSockets.
 
 ## Connecting devices
 

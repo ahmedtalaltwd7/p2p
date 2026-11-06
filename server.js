@@ -4,7 +4,6 @@ import { createServer } from 'node:http';
 import { randomInt } from 'node:crypto';
 import { extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createServer as createViteServer } from 'vite';
 import { WebSocket, WebSocketServer } from 'ws';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
@@ -18,12 +17,13 @@ const maxSignalBytes = 1_000_000;
 const maxJoinAttempts = 12;
 const maxCreateAttempts = 6;
 const rateWindowMs = 60 * 1000;
+const trustProxy = process.env.TRUST_PROXY === 'true';
 const rooms = new Map();
 const joinAttempts = new Map();
 const createAttempts = new Map();
 
 function send(socket, message) {
-	if (socket.readyState === WebSocket.OPEN) socket.send(JSON.stringify(message));
+	if (socket?.readyState === WebSocket.OPEN) socket.send(JSON.stringify(message));
 }
 
 function fail(socket, message) {
@@ -165,14 +165,16 @@ function handleDisconnect(socket) {
 	if (socket.role === 'host' && room.host === socket) {
 		removeRoom(socket.code, { type: 'expired', message: 'The other device ended this pairing.' });
 	} else if (socket.role === 'guest' && room.guest === socket) {
-		room.guest = null;
-		send(room.host, { type: 'peer-left' });
+		removeRoom(socket.code, { type: 'expired', message: 'The other device disconnected. Create a new number to try again.' });
 	}
 }
 
 const wsServer = new WebSocketServer({ noServer: true, maxPayload: maxSignalBytes, perMessageDeflate: false });
 wsServer.on('connection', (socket, request) => {
-	socket.peerAddress = request.socket.remoteAddress;
+	const forwardedFor = request.headers['x-forwarded-for'];
+	socket.peerAddress = trustProxy && typeof forwardedFor === 'string'
+		? forwardedFor.split(',')[0].trim()
+		: request.socket.remoteAddress;
 	socket.on('message', (message) => handleMessage(socket, message));
 	socket.on('close', () => handleDisconnect(socket));
 	socket.on('error', (error) => console.error('Signaling socket error:', error));
@@ -267,6 +269,7 @@ httpServer.on('upgrade', (request, socket, head) => {
 });
 
 if (!production) {
+	const { createServer: createViteServer } = await import('vite');
 	vite = await createViteServer({ server: { middlewareMode: true, hmr: false }, appType: 'spa' });
 }
 
