@@ -1,5 +1,5 @@
-const CACHE_NAME = 'localdrop-shell-v2';
-const APP_SHELL = ['/', '/styles.css', '/app.js', '/manifest.webmanifest', '/icon.svg'];
+const CACHE_NAME = 'localdrop-shell-v3';
+const APP_SHELL = ['/', '/styles.css', '/app.js', '/js/signaling.js', '/manifest.webmanifest', '/icon.svg'];
 
 self.addEventListener('install', (event) => {
 	event.waitUntil(

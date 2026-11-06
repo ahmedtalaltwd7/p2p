@@ -10,24 +10,26 @@ npm install
 npm run dev
 ```
 
-Create a production build with `npm run build`; preview it with `npm run
-preview`. The app must be served from a secure context (HTTPS, or localhost)
-for APIs such as service workers and the File System Access API. On a phone,
-use an HTTPS deployment or a local trusted development setup.
+Create a production build with `npm run build`, then run it with `npm start`.
+The development and production servers provide both the app and its signaling
+WebSocket endpoint. Deploy them together on a Node.js host that supports
+WebSockets; a static-only host is not sufficient. Set `PORT` if the host
+requires a specific port. The app must be served over HTTPS in production for
+secure browser APIs and WebSockets.
 
 ## Connecting devices
 
-1. Open LocalDrop on both devices at the same time.
-2. On one device, choose **Create connection** and **Create offer**.
-3. Copy the full offer JSON to the other device using a private, direct method.
-4. On the other device, paste the offer and choose **Create answer**.
-5. Copy the answer JSON back to the first device and choose **Finish connection**.
+1. Open LocalDrop on both devices.
+2. On the first device, choose **Create connection number**.
+3. Enter the displayed eight-digit number on the second device. The connection
+   is negotiated automatically.
 
-The exchange contains complete SDP, including gathered ICE candidates; no
-signaling server, STUN server, or TURN server is configured. Network policy,
-NAT, browser candidate privacy, and Wi-Fi client isolation may prevent a direct
-connection. This build has no QR generation or scanning; connection codes
-should not be sent through public services.
+The signaling server temporarily relays the WebRTC offer and answer in memory;
+it does not receive file contents or save pairing data. Eight-digit numbers
+expire after five minutes and can only be used once. Share them only with the
+device you intend to connect. No STUN or TURN server is configured, so NAT,
+browser network privacy, Wi-Fi isolation, and network policy may still prevent
+a direct connection, especially across different networks.
 
 ## Transfer behavior
 
